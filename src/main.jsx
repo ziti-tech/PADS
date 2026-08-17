@@ -8,7 +8,7 @@ const A={ [Symbol.toPrimitive]:()=> '/images/ngo-4.jpg?asset=' };
 const hero=['/images/education-community.png','/images/health-water-community.png','/images/women-livelihoods.png'];
 const nav=[
   ['About us',[['Where We Work','/where-we-work/'],['Leadership','/leadership/'],['Accountability','/accountability/'],['In The Media','/in-the-media/'],['Newsletter','/newsletter/'],['Tribute','/tribute/']]],
-  ['Programs',[["St. Patrick's Academy",'/st-patricks-academy/'],['Little Flower School','/little-flower-school/'],['Literacy Project','/literacy-project/'],['Sponsorship','/sponsorship/'],['Community Health','/community-health/'],['Women Empowerment','/women-empowerment/'],['Outreach','/outreach/'],['Vocational Training','/vocational-training/'],['Drinking Water','/drinking-water/']]],
+  ['Programs',[["St. John's Higher Secondary School",'/st-patricks-academy/'],['Literacy Project','/literacy-project/'],['Sponsorship','/sponsorship/'],['Community Health','/community-health/'],['Women Empowerment','/women-empowerment/'],['Outreach','/outreach/'],['Vocational Training','/vocational-training/'],['Drinking Water','/drinking-water/']]],
   ['Get Involved',[["Volunteer",'/volunteer/'],['Legacy Gift','/legacy-gift/'],['Donating Methods','/donating-methods/']]]
 ];
 
