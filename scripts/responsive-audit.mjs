@@ -33,11 +33,13 @@ for (const size of sizes) {
       const mobileNav = await page.locator('nav.open').evaluate(el => ({visible:getComputedStyle(el).display !== 'none', fits:el.scrollWidth <= el.clientWidth + 1, links:el.querySelectorAll('a').length}));
       if (!mobileNav.visible || !mobileNav.fits || mobileNav.links < 10) report.overflow.push({mobileNav});
       const firstGroup = page.locator('.navgroup').first();
-      const initiallyClosed = await firstGroup.locator('.dropdown').evaluate(el => getComputedStyle(el).display === 'none');
+      const initiallyClosed = await firstGroup.locator('.dropdown').evaluate(el => el.getBoundingClientRect().height < 1);
       await firstGroup.locator('button').click();
-      const opened = await firstGroup.locator('.dropdown').evaluate(el => getComputedStyle(el).display !== 'none');
+      await page.waitForTimeout(350);
+      const opened = await firstGroup.locator('.dropdown').evaluate(el => el.getBoundingClientRect().height > 1);
       await firstGroup.locator('button').click();
-      const closedAgain = await firstGroup.locator('.dropdown').evaluate(el => getComputedStyle(el).display === 'none');
+      await page.waitForTimeout(350);
+      const closedAgain = await firstGroup.locator('.dropdown').evaluate(el => el.getBoundingClientRect().height < 1);
       if (!initiallyClosed || !opened || !closedAgain) report.overflow.push({accordion:{initiallyClosed,opened,closedAgain}});
     }
     const ok = report.body <= report.viewport + 1 && report.overflow.length === 0;
