@@ -22,7 +22,7 @@ function Hero(){const [slide,setSlide]=useState(0);useEffect(()=>{const t=setInt
 
 function Counter({to,suffix='+'}){const [n,setN]=useState(0);useEffect(()=>{let start;const go=t=>{start??=t;let p=Math.min((t-start)/1500,1);setN(Math.floor(to*(1-(1-p)**3)));if(p<1)requestAnimationFrame(go)};requestAnimationFrame(go)},[to]);return <strong>{n.toLocaleString()}<span>{suffix}</span></strong>}
 
-const impacts=[['Underprivileged children educated in 36 years',30000,GraduationCap,'+'],['Community awareness and health camps conducted',50,Stethoscope,'+'],["Girls' hostel built for underprivileged children",1,Heart,''],['Community development centre for the marginalised Thurumbar community',1,Droplets,'']];
+const impacts=[['Underprivileged children educated over 36 years',30000,GraduationCap,'+'],['Community awareness and health camps conducted',50,Stethoscope,'+'],["Girls' hostel built for underprivileged children",1,Heart,''],['Centre for the marginalised Thurumbar community',1,Droplets,'']];
 function Stats(){return <section className="stats"><div className="wrap statsGrid">{impacts.map(([t,n,I,s])=><div className="stat" key={t}><I/><Counter to={n} suffix={s}/><p>{t}</p></div>)}</div></section>}
 
 const actions=[
